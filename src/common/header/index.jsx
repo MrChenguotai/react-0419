@@ -3,6 +3,7 @@ import {HeaderWrapper,Logo,Nav,NavItem,NavSearch,Addition,Button,SearchInfo,Sear
 import { CSSTransition } from 'react-transition-group';
 import {connect} from 'react-redux';
 import {actionCreators} from './store';
+import {Link} from 'react-router-dom';
 
 class Header extends Component{
     getListArea(){
@@ -39,7 +40,9 @@ class Header extends Component{
         const {focused,handleInputFocus,handleInputBlur,list}=this.props;
         return (
             <HeaderWrapper>
-                <Logo></Logo> 
+                <Link to="/">
+                    <Logo></Logo>
+                </Link>
                 <Nav>
                     <NavItem className="left active">首页</NavItem> 
                     <NavItem className="left">下载APP</NavItem> 
@@ -88,7 +91,6 @@ const mapStateToProps=(state)=>{
 const mapDispatchToProps=(dispatch)=>{
     return {
         handleInputFocus(list){
-            console.log(list);
             if(list.size===0){
                 dispatch(actionCreators.getList());
             }
@@ -104,7 +106,6 @@ const mapDispatchToProps=(dispatch)=>{
 			dispatch(actionCreators.mouseLeave());
         },
         handleChangePage(page,totalPage){
-            console.log(page,totalPage);
             if(page<totalPage){
                 dispatch(actionCreators.changePage(page+1));
             }else{

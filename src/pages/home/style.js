@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const HomeWrapper = styled.div`
 	overflow: hidden;
 	width: 960px;
@@ -20,6 +21,7 @@ export const HomeRight = styled.div`
 	width: 280px;
 	float: right;
 `;
+
 export const TopicWrapper = styled.div`
 	overflow: hidden;
 	padding: 20px 0 10px 0;
